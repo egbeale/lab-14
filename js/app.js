@@ -7,15 +7,38 @@ const Cart = function(items) {
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  // DONE: Fill in this instance method to create a new CartItem and add it to this.items
+
+  //CREATING CartItem OBJECT
+  let cartItem = new CartItem(product, quantity);
+  // this.items = cartItem;
+  cart.items.push(cartItem);
+  //cart - ref to array. items - the array. pushing that object cartItem into items.
+  let stringifiedItems = JSON.stringify(cart.items);
+  //now we have reference, we can store it in local storage
+  localStorage.setItem('cart', stringifiedItems);
+
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
-};
+  // DONE: Fill in this instance method to save the contents of the cart to localStorage.
 
+
+};
+//what parameter do we want to pass thru? cartItem.product. btw, product = item.
+// cart is an array
+// for loop go thru itemsArray
+// if statement -- if name matches, take it out 
+//cart.removeItem('dragon')
+// cart.items.length --- layers in console -- first, in cart - then item array in cart. 
 Cart.prototype.removeItem = function(item) {
-  // TODO: Fill in this instance method to remove one item from the cart.
+  
+  for (let i = 0; i < cart.items.length; i++) {
+    if (cart.items[i].product === item) {
+      cart.items.pop(cart.items[i]);
+    }
+  }
+  // DONE: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
 };
 
