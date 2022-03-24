@@ -1,1 +1,11 @@
-/* TODO: Make it awesome */
+body {
+  background-color: rgb(191, 197, 208);
+}
+
+header {
+  background-color: linear-gradient(blue, red);
+}
+
+th, td {
+  border: 3px solid black;
+}
